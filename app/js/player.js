@@ -46,7 +46,7 @@ let player = new Vue({
     start: function() {
       //this.parseURI();
 
-      this.$http.get(this.apiUrl + '/api/all-genres').then(value => {
+      this.$http.get(this.apiUrl + 'api/all-genres').then(value => {
         store.dispatch('INIT_ALL_GENRES', value.data);
 
         this.initVolume();
