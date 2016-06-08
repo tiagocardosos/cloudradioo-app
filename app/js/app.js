@@ -30,7 +30,7 @@ new Vue({
 
   ready: function() {
     // Set the base url for api
-    store.dispatch('SET_API_URL', 'http://localhost:8000/');
+    store.dispatch('SET_API_URL', 'http://cloudradioo.com/');
 
     //localStorage.clear();
     this.$http.get(this.$store.state.player.apiUrl + 'api/api-key').then(value => {
