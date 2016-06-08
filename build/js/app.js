@@ -20,8 +20,12 @@ exports.default = {
         var player = _ref.player;
         return player.currentTrack;
       },
-      subNav: function subNav(_ref2) {
-        var options = _ref2.options;
+      apiUrl: function apiUrl(_ref2) {
+        var player = _ref2.player;
+        return player.apiUrl;
+      },
+      subNav: function subNav(_ref3) {
+        var options = _ref3.options;
         return options.subNav;
       }
     },
@@ -60,7 +64,7 @@ exports.default = {
   }
 };
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<header :class=\"{hideIndex: subNav}\">\n  <div class=\"hidden-tools {{ showToolsOnStart ? 'active' : '' }} {{ showShareTrack ? 'show-share-track' : '' }}\">\n    <a :href=\"currentTrack.permalink_url\" target=\"_blank\">Soundcloud</a>\n    <a href=\"https://www.youtube.com/results?search_query={{ currentTrack.username + ' ' + currentTrack.title }}\" target=\"_blank\">Youtube</a>\n    <a @click=\"enableShareTrack()\">Share Track</a>\n\n    <div class=\"share-track-wrap\">\n      <input type=\"text\" class=\"share-track\" value=\"http://localhost:8000/{{ currentTrack.id }}\" readonly=\"\">\n      <a @click=\"disableShareTrack()\">Close</a>\n    </div>\n  </div>\n\n  <h2 class=\"title\">{{ currentTrack.title }}</h2>\n  <h3 class=\"author\">{{ currentTrack.username }}</h3>\n  <span class=\"genre\">{{ currentTrack.genre }}</span>\n</header>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<header :class=\"{hideIndex: subNav}\">\n  <div class=\"hidden-tools {{ showToolsOnStart ? 'active' : '' }} {{ showShareTrack ? 'show-share-track' : '' }}\">\n    <a :href=\"currentTrack.permalink_url\" target=\"_blank\">Soundcloud</a>\n    <a href=\"https://www.youtube.com/results?search_query={{ currentTrack.username + ' ' + currentTrack.title }}\" target=\"_blank\">Youtube</a>\n    <a @click=\"enableShareTrack()\">Share Track</a>\n\n    <div class=\"share-track-wrap\">\n      <input type=\"text\" class=\"share-track\" value=\"{{ apiUrl + currentTrack.id }}\" readonly=\"\">\n      <a @click=\"disableShareTrack()\">Close</a>\n    </div>\n  </div>\n\n  <h2 class=\"title\">{{ currentTrack.title }}</h2>\n  <h3 class=\"author\">{{ currentTrack.username }}</h3>\n  <span class=\"genre\">{{ currentTrack.genre }}</span>\n</header>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -335,8 +339,11 @@ new _vue2.default({
   },
 
   ready: function ready() {
+    // Set the base url for api
+    _store2.default.dispatch('SET_API_URL', 'http://localhost:8000/');
+
     //localStorage.clear();
-    this.$http.get('http://localhost:8000/api/api-key').then(function (value) {
+    this.$http.get(this.$store.state.player.apiUrl + 'api/api-key').then(function (value) {
       _store2.default.dispatch('SET_API_KEY', value.data);
 
       _player2.default.start();
@@ -516,8 +523,12 @@ var player = new _vue2.default({
         var player = _ref4.player;
         return player.apiKey;
       },
-      userFilters: function userFilters(_ref5) {
-        var filter = _ref5.filter;
+      apiUrl: function apiUrl(_ref5) {
+        var player = _ref5.player;
+        return player.apiUrl;
+      },
+      userFilters: function userFilters(_ref6) {
+        var filter = _ref6.filter;
         return filter.userFilters;
       }
     },
@@ -535,7 +546,7 @@ var player = new _vue2.default({
 
       //this.parseURI();
 
-      this.$http.get('http://localhost:8000/api/all-genres').then(function (value) {
+      this.$http.get(this.apiUrl + '/api/all-genres').then(function (value) {
         _store2.default.dispatch('INIT_ALL_GENRES', value.data);
 
         _this.initVolume();
@@ -558,7 +569,7 @@ var player = new _vue2.default({
     initAllTracks: function initAllTracks() {
       var _this2 = this;
 
-      this.$http.get('http://localhost:8000/api/songs', { filters: this.userFilters }).then(function (value) {
+      this.$http.get(this.apiUrl + 'api/songs', { filters: this.userFilters }).then(function (value) {
         _store2.default.dispatch('INIT_ALL_TRACKS', value.data);
 
         // Is there an shared uri? Fetch the track and store them as currentTrack.
@@ -949,6 +960,7 @@ var state = {
   audio: null,
   playing: true,
   apiKey: null,
+  apiUrl: null,
   lastTrackIndex: null,
   countPrevious: 0,
   volume: .75
@@ -998,6 +1010,9 @@ var mutations = {
   },
   SET_API_KEY: function SET_API_KEY(state, key) {
     state.apiKey = key;
+  },
+  SET_API_URL: function SET_API_URL(state, url) {
+    state.apiUrl = url;
   },
   PLAY_PAUSE: function PLAY_PAUSE(state) {
     if (state.playing) {
