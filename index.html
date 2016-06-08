@@ -1,19 +1,31 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Hello World!</title>
-  </head>
-  <body>
-    <h1>Hello World!</h1>
-    <!-- All of the Node.js APIs are available in this renderer process. -->
-    We are using node <script>document.write(process.versions.node)</script>,
-    Chromium <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
-  </body>
+<head>
 
-  <script>
-    // You can also require other files to run in this process
-    require('./renderer.js')
-  </script>
+  <meta charset="utf-8">
+  <meta class="base-uri" content="/">
+  <meta name="description" content="cloudradioo is a service that plays randomly all top 50 songs from the soundcloud charts. You will discover your new favorite song! ;)">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>cloudradioo | Discover New Music</title>
+
+  <link href="assets/favicon.ico?v=1') }}" rel="icon" type="image/x-icon">
+  <link href="assets/css/app.css" rel="stylesheet">
+
+</head>
+<body>
+
+<div class="app">
+
+  <progress></progress>
+  <cloudradioo-header></cloudradioo-header>
+  <navigation></navigation>
+
+  <div class="svg-wrap"></div>
+
+</div>
+
+<script src="assets/js/d3.min.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
 </html>
