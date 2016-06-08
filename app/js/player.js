@@ -2,7 +2,7 @@ import Vue from 'vue';
 import Resource from 'vue-resource';
 import d3 from 'd3'
 
-import { initCurrentTrack, initUserFilters, initUserHistory, initVolume } from './store/actions';
+import { initCurrentTrack, initUserFilters, initUserHistory, initVolume } from 'store/actions';
 
 import store from './store';
 
