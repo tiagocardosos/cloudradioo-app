@@ -6,6 +6,14 @@
   "license": "MIT",
   "homepage": "https://github.com/devfake/cloudradioo-app",
   "devDependencies": {
-    "electron-prebuilt": "^1.2.0"
+    "electron-prebuilt": "^1.2.0",
+    "gulp": "^3.9.1"
+  },
+  "dependencies": {
+    "d3": "^3.5.17",
+    "nouislider": "^8.5.1",
+    "vue": "^1.0.24",
+    "vue-resource": "^0.7.2",
+    "vuex": "^0.6.3"
   }
 }
