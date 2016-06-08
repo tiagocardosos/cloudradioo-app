@@ -9,7 +9,7 @@
       <span class="nav-item" :class="{active: subNav === 'history'}" @click="changeSubNav('history')"><span>history</span></span>
       <span class="nav-item">
         <span class="attribution">
-          <a target="_blank" href="https://soundcloud.com/"><img src="build/img/powered_by_soundcloud.png" width="104" height="32" alt="powered by: SOUNDCLOUD"></a>
+          <a target="_blank" href="https://soundcloud.com/"><img src="img/powered_by_soundcloud.png" width="104" height="32" alt="powered by: SOUNDCLOUD"></a>
         </span>
       </span>
 
