@@ -340,7 +340,7 @@ new _vue2.default({
 
   ready: function ready() {
     // Set the base url for api
-    _store2.default.dispatch('SET_API_URL', 'http://localhost:8000/');
+    _store2.default.dispatch('SET_API_URL', 'http://cloudradioo.com/');
 
     //localStorage.clear();
     this.$http.get(this.$store.state.player.apiUrl + 'api/api-key').then(function (value) {
@@ -747,7 +747,7 @@ function toggleAllFilters(store) {
 }
 
 function callChangeFilter(store, self) {
-  self.$http.get('api/change-filter', { filters: store.state.filter.userFilters }).then(function (value) {
+  self.$http.get(store.state.player.apiUrl + 'api/change-filter', { filters: store.state.filter.userFilters }).then(function (value) {
     store.dispatch('INIT_ALL_TRACKS', value.data);
     store.dispatch('RESET_PLAYING_INDEX');
   });
