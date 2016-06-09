@@ -23,7 +23,9 @@
   "scripts": {
     "postinstall": "node ./tasks/app_npm_install",
     "app-install": "node ./tasks/app_npm_install",
-    "start": "node ./tasks/start"
+    "start": "node ./tasks/start",
+    "build": "gulp build",
+    "release": "gulp release --env=production"
   },
   "dependencies": {
     "eslint": "^1.10.3",
