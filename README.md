@@ -17,7 +17,7 @@ The app comes with the cloudradioo server as the default api url. If you have th
 Change the url in `app/js/app.js` for your backend cloudradioo server:
 
 ```
-store.dispatch('SET_API_URL', 'http://cloudradioo/');
+store.dispatch('SET_API_URL', 'http://cloudradioo.com/');
 ```
 
 Then compile the assets and start the app:
@@ -47,6 +47,7 @@ npm run release-win -> Create a release for the win32 platform (arch x64)
 - [ ] Native Icon for each platform
 - [ ] Splash Screen
 - [ ] Improve release build system (electron-packager node API + gulp)
+- [ ] New Charts
 
 
 
