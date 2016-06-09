@@ -75,7 +75,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-31671d8e", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../player":8,"../store/actions":9,"vue":20,"vue-hot-reload-api":18}],2:[function(require,module,exports){
+},{"../player":9,"../store/actions":10,"vue":21,"vue-hot-reload-api":19}],2:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -169,7 +169,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-44b40bf2", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../store/actions":9,"./subnav.vue":4,"nouislider":17,"vue":20,"vue-hot-reload-api":18}],3:[function(require,module,exports){
+},{"../store/actions":10,"./subnav.vue":4,"nouislider":18,"vue":21,"vue-hot-reload-api":19}],3:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -223,7 +223,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-664416ee", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../store/actions":9,"vue":20,"vue-hot-reload-api":18}],4:[function(require,module,exports){
+},{"../store/actions":10,"vue":21,"vue-hot-reload-api":19}],4:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -282,7 +282,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-671a62e4", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../store/actions":9,"vue":20,"vue-hot-reload-api":18}],5:[function(require,module,exports){
+},{"../store/actions":10,"vue":21,"vue-hot-reload-api":19}],5:[function(require,module,exports){
 'use strict';
 
 var _vue = require('vue');
@@ -352,7 +352,7 @@ new _vue2.default({
   }
 });
 
-},{"./components/header.vue":1,"./components/nav.vue":2,"./components/progress.vue":3,"./filters":6,"./keyevents":7,"./player":8,"./store":10,"vue":20,"vue-resource":19}],6:[function(require,module,exports){
+},{"./components/header.vue":1,"./components/nav.vue":2,"./components/progress.vue":3,"./filters":6,"./keyevents":7,"./player":9,"./store":11,"vue":21,"vue-resource":20}],6:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -459,7 +459,54 @@ var keyEvents = new _vue2.default({
 
 exports.default = keyEvents;
 
-},{"./store":10,"./store/actions":9,"vue":20}],8:[function(require,module,exports){
+},{"./store":11,"./store/actions":10,"vue":21}],8:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _vue = require('vue');
+
+var _vue2 = _interopRequireDefault(_vue);
+
+var _store = require('./store');
+
+var _store2 = _interopRequireDefault(_store);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var notification = new _vue2.default({
+  store: _store2.default,
+
+  vuex: {
+    getters: {
+      currentTrack: function currentTrack(_ref) {
+        var player = _ref.player;
+        return player.currentTrack;
+      },
+      apiUrl: function apiUrl(_ref2) {
+        var player = _ref2.player;
+        return player.apiUrl;
+      }
+    }
+  },
+
+  methods: {
+    songPlayed: function songPlayed() {
+      this.notify(this.currentTrack.title, 'By: ' + this.currentTrack.username + '\n           Genre: ' + this.currentTrack.genre);
+    },
+    notify: function notify(title, body) {
+      new Notification(title, {
+        body: body
+      });
+    }
+  }
+});
+
+exports.default = notification;
+
+},{"./store":11,"vue":21}],9:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -473,6 +520,10 @@ var _vue2 = _interopRequireDefault(_vue);
 var _vueResource = require('vue-resource');
 
 var _vueResource2 = _interopRequireDefault(_vueResource);
+
+var _notification = require('./notification');
+
+var _notification2 = _interopRequireDefault(_notification);
 
 var _d = require('d3');
 
@@ -589,6 +640,7 @@ var player = new _vue2.default({
 
     initPlayer: function initPlayer() {
       _store2.default.dispatch('CREATE_AUDIO', this.currentTrack.id);
+      _notification2.default.songPlayed();
       this.registerEventListener();
     },
 
@@ -698,7 +750,7 @@ var player = new _vue2.default({
 
 exports.default = player;
 
-},{"./store":10,"./store/actions":9,"d3":15,"vue":20,"vue-resource":19}],9:[function(require,module,exports){
+},{"./notification":8,"./store":11,"./store/actions":10,"d3":16,"vue":21,"vue-resource":20}],10:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -827,7 +879,7 @@ function changeRepeat(_ref12) {
   dispatch('CHANGE_REPEAT');
 }
 
-},{"../player":8}],10:[function(require,module,exports){
+},{"../player":9}],11:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -871,7 +923,7 @@ exports.default = new _vuex2.default.Store({
   }
 });
 
-},{"./modules/filter":11,"./modules/options":12,"./modules/player":13,"./modules/progress":14,"vue":20,"vuex":21}],11:[function(require,module,exports){
+},{"./modules/filter":12,"./modules/options":13,"./modules/player":14,"./modules/progress":15,"vue":21,"vuex":22}],12:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -919,7 +971,7 @@ function setStorage(userFilters) {
 
 exports.default = { state: state, mutations: mutations };
 
-},{}],12:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -946,7 +998,7 @@ var mutations = {
 
 exports.default = { state: state, mutations: mutations };
 
-},{}],13:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1119,7 +1171,7 @@ var mutations = {
 
 exports.default = { state: state, mutations: mutations };
 
-},{}],14:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1145,7 +1197,7 @@ var mutations = {
 
 exports.default = { state: state, mutations: mutations };
 
-},{}],15:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 !function() {
   var d3 = {
     version: "3.5.17"
@@ -10700,7 +10752,7 @@ exports.default = { state: state, mutations: mutations };
   });
   if (typeof define === "function" && define.amd) this.d3 = d3, define(d3); else if (typeof module === "object" && module.exports) module.exports = d3; else this.d3 = d3;
 }();
-},{}],16:[function(require,module,exports){
+},{}],17:[function(require,module,exports){
 // shim for using process in browser
 
 var process = module.exports = {};
@@ -10765,7 +10817,7 @@ process.chdir = function (dir) {
     throw new Error('process.chdir is not supported');
 };
 
-},{}],17:[function(require,module,exports){
+},{}],18:[function(require,module,exports){
 /*! nouislider - 8.5.1 - 2016-04-24 16:00:29 */
 
 (function (factory) {
@@ -12725,7 +12777,7 @@ function closure ( target, options, originalOptions ){
 	};
 
 }));
-},{}],18:[function(require,module,exports){
+},{}],19:[function(require,module,exports){
 var Vue // late bind
 var map = Object.create(null)
 var shimmed = false
@@ -13025,7 +13077,7 @@ function format (id) {
   return id.match(/[^\/]+\.vue$/)[0]
 }
 
-},{}],19:[function(require,module,exports){
+},{}],20:[function(require,module,exports){
 /**
  * vue-resource v0.7.2
  * https://github.com/vuejs/vue-resource
@@ -14683,7 +14735,7 @@ module.exports =
 
 /***/ }
 /******/ ]);
-},{}],20:[function(require,module,exports){
+},{}],21:[function(require,module,exports){
 (function (process,global){
 /*!
  * Vue.js v1.0.24
@@ -24716,7 +24768,7 @@ setTimeout(function () {
 
 module.exports = Vue;
 }).call(this,require("b55mWE"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"b55mWE":16}],21:[function(require,module,exports){
+},{"b55mWE":17}],22:[function(require,module,exports){
 /*!
  * Vuex v0.6.3
  * (c) 2016 Evan You
