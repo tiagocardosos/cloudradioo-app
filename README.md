@@ -29,7 +29,9 @@ npm start
 
 ### Creating a release
 
-WIP
+```
+npm run release
+```
 
 ### ToDo
 
