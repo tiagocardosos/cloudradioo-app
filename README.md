@@ -24,21 +24,12 @@ Then compile the assets and start the app:
 
 ```
 npm install
-npm run build && npm run start
+npm start
 ```
 
 ### Creating a release
 
-The proccess for creating platform releases of cloudradioo app are still in development and are unstable.
-
-For now the following commands is available:
-
-```
-npm run release-all -> Create a release for each platform and version supported by electron
-npm run release-linux -> Create a release for the linux platform (arch x64)
-npm run release-mac -> Create a release for the darwin platform (arch x64)
-npm run release-win -> Create a release for the win32 platform (arch x64)
-```
+WIP
 
 ### ToDo
 
