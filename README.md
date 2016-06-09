@@ -43,7 +43,7 @@ npm run release-win -> Create a release for the win32 platform (arch x64)
 ### ToDo
 
 - [x] Electron App
-- [ ] Desktop Notifications
+- [x] Desktop Notifications
 - [ ] Native Icon for each platform
 - [ ] Splash Screen
 - [ ] Improve release build system (electron-packager node API + gulp)
