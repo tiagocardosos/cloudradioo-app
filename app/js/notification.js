@@ -16,8 +16,7 @@ let notification = new Vue({
     songPlayed () {
       this.notify(
           this.currentTrack.title,
-          `By: ${this.currentTrack.username}
-           Genre: ${this.currentTrack.genre}`
+          `By: ${this.currentTrack.username} on genre ${this.currentTrack.genre}`
       )
     },
 
