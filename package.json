@@ -4,7 +4,11 @@
   "homepage": "https://github.com/devfake/cloudradioo-app",
   "scripts": {
     "start": "electron main.js",
-    "build": "gulp"
+    "build": "gulp",
+    "release-all": "electron-packager . Cloudradioo --all --version=1.2.2  --ignore='node_modules' --out=./releases/all --overwrite",
+    "release-linux": "electron-packager . Cloudradioo --platform=linux --arch=x64 --version=1.2.2  --ignore='node_modules' --out=./releases/linux --overwrite",
+    "release-mac": "electron-packager . Cloudradioo --platform=darwin --arch=x64 --version=1.2.2 --ignore='node_modules' --out=./releases/mac --overwrite",
+    "release-win": "electron-packager . Cloudradioo --platform=win32 --arch=x64 --version=1.2.2 --ignore='node_modules' --out=./releases/win32 --overwrite"
   },
   "browserify": {
     "transform": [
