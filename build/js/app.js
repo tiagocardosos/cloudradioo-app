@@ -494,7 +494,7 @@ var notification = new _vue2.default({
 
   methods: {
     songPlayed: function songPlayed() {
-      this.notify(this.currentTrack.title, 'By: ' + this.currentTrack.username + '\n           Genre: ' + this.currentTrack.genre);
+      this.notify(this.currentTrack.title, 'By: ' + this.currentTrack.username + ' on genre ' + this.currentTrack.genre);
     },
     notify: function notify(title, body) {
       new Notification(title, {
