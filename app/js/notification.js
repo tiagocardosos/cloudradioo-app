@@ -1,6 +1,6 @@
 import Vue from 'vue';
-
 import store from './store';
+import notifier from 'node-notifier';
 
 let notification = new Vue({
   store,
@@ -20,9 +20,13 @@ let notification = new Vue({
       )
     },
 
-    notify(title, body) {
-      new Notification(title, {
-        body
+    notify(title, message, icon = '', sound = false, wait = false) {
+      notifier.notify({
+        title,
+        message,
+        icon,
+        sound,
+        wait
       });
     }
   }
