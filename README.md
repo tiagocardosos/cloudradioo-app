@@ -1,4 +1,4 @@
-![cloudradioo](http://i.imgur.com/lf18DnW.jpg)
+![cloudradioo](https://i.imgsafe.org/afc8537f2e.png)
 
 Cloudradioo App
 ===============
