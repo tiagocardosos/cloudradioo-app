@@ -41,7 +41,7 @@ npm run release
 
 - [x] Electron App
 - [x] Desktop Notifications (Adopted node-notifier instead of Electron Web API)
-- [ ] Native Icon for each platform
+- [x] Native Icon for each platform (Need update the icons)
 - [ ] Splash Screen
 - [x] Improve release build system (Fully stable on Windows and Linux systems. Need testers for the darwin platform)
 - [ ] New Charts
