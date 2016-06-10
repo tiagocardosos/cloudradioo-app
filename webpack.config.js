@@ -3,6 +3,10 @@ var webpack = require('webpack');
 
 module.exports = {
   target: 'atom',
+  node: {
+    __filename: true,
+    __dirname: true
+  },
   entry: {
     app: './app/js/app.js',
   },
