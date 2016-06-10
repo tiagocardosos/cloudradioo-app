@@ -31,7 +31,7 @@ npm start
 
 You can create a release **only** for your operation system
 
-For windows user, you need the NSIS library installed and added to your path. The version 2 of this library has some bugs with electron, I recommend the version 3.0 which is currently in RC
+For windows users, you need the NSIS library installed and added to your path. The version 2 of this library has some bugs with electron, I recommend the version 3.0 which is currently in RC
 
 ```
 npm run release
