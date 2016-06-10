@@ -29,6 +29,10 @@ npm start
 
 ### Creating a release
 
+You can create a release **only** for your operation system
+
+For windows users, you need the NSIS library installed and added to your path. The version 2 of this library has some bugs with electron, I recommend the version 3.0 which is currently in RC
+
 ```
 npm run release
 ```
@@ -39,7 +43,7 @@ npm run release
 - [x] Desktop Notifications
 - [ ] Native Icon for each platform
 - [ ] Splash Screen
-- [ ] Improve release build system (electron-packager node API + gulp)
+- [x] Improve release build system
 - [ ] New Charts
 
 
