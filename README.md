@@ -7,6 +7,12 @@ Cloudradioo App
 
 This is the app version of cloudradioo, built with [electron](http://electron.atom.io/) and [Vue.js](http://vuejs.org) (with [Vuex](https://github.com/vuejs/vuex)).
 
+### Installer
+
+Please go to the [release page](https://github.com/devfake/cloudradioo-app/releases) and get the latest version for your operation system
+
+### For developers
+
 ### Requirements
 * Node / NPM
 
@@ -26,10 +32,6 @@ Then compile the assets and start the app:
 npm install
 npm start
 ```
-
-### Cloudradioo Installer
-
-Please go to the [release page](https://github.com/devfake/cloudradioo-app/releases) and get the latest version for your operation system
 
 ### Creating a release
 
