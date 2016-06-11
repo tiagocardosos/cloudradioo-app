@@ -27,7 +27,7 @@ npm install
 npm start
 ```
 
-### Using cloudradioo on your desktop
+### Cloudradioo Installer
 
 Please go to the [release page](https://github.com/devfake/cloudradioo-app/releases) and get the latest version for your operation system
 
