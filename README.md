@@ -40,8 +40,8 @@ npm run release
 ### ToDo
 
 - [x] Electron App
-- [x] Desktop Notifications (Adopted node-notifier instead of Electron Web API)
-- [ ] Notification preferences (Sound on/off, notification on/off etc)
+- [x] Desktop Notifications (HTML5 Notification API)
+- [ ] Notification preferences (Sound on/off, notification on/off, etc)
 - [x] Native Icon for each platform (Need update the icons)
 - [ ] Splash Screen
 - [x] Improve release build system (Fully stable on Windows and Linux systems. Need testers for the darwin platform)
