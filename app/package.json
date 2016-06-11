@@ -4,7 +4,7 @@
   "homepage": "http://cloudradioo.com",
   "identifier": "com.devfake.cloudradioo-app",
   "description": "The desktop app for Cloudradioo",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "main": "main.js",
   "license": "MIT",
   "repository": {
