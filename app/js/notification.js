@@ -15,19 +15,20 @@ let notification = new Vue({
   methods: {
     songPlayed () {
       this.notify(
-          this.currentTrack.title,
-          `By: ${this.currentTrack.username} on genre ${this.currentTrack.genre}`
+          `♫ ${this.currentTrack.title}`,
+          `By: ${this.currentTrack.username} on ${this.currentTrack.genre}`
       )
     },
 
-    notify(title, message, icon = '', sound = false, wait = false) {
-      notifier.notify({
+    notify(title, body, silent = true, icon = require('../img/logo.png')) {
+      return new Notification(
         title,
-        message,
-        icon,
-        sound,
-        wait
-      });
+        {
+          icon,
+          body,
+          silent
+        }
+      );
     }
   }
 });
