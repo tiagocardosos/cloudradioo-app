@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Resource from 'vue-resource';
+import notification from './notification'
 import d3 from 'd3'
 
 import { initCurrentTrack, initUserFilters, initUserHistory, initVolume } from './store/actions';
@@ -31,6 +32,7 @@ let player = new Vue({
       currentPlayingIndex: ({ player }) => player.currentPlayingIndex,
       audio: ({ player }) => player.audio,
       apiKey: ({ player }) => player.apiKey,
+      apiUrl: ({ player }) => player.apiUrl,
       userFilters: ({ filter }) => filter.userFilters
     },
     actions: {
@@ -45,7 +47,7 @@ let player = new Vue({
     start: function() {
       //this.parseURI();
 
-      this.$http.get('http://localhost:8000/api/all-genres').then(value => {
+      this.$http.get(this.apiUrl + 'api/all-genres').then(value => {
         store.dispatch('INIT_ALL_GENRES', value.data);
 
         this.initVolume();
@@ -66,7 +68,7 @@ let player = new Vue({
     },
 
     initAllTracks: function() {
-      this.$http.get('http://localhost:8000/api/songs', {filters: this.userFilters}).then(value => {
+      this.$http.get(this.apiUrl + 'api/songs', {filters: this.userFilters}).then(value => {
         store.dispatch('INIT_ALL_TRACKS', value.data);
 
         // Is there an shared uri? Fetch the track and store them as currentTrack.
@@ -86,6 +88,7 @@ let player = new Vue({
 
     initPlayer: function() {
       store.dispatch('CREATE_AUDIO', this.currentTrack.id);
+      notification.songPlayed()
       this.registerEventListener();
     },
 

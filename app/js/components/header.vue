@@ -6,7 +6,7 @@
       <a @click="enableShareTrack()">Share Track</a>
 
       <div class="share-track-wrap">
-        <input type="text" class="share-track" value="http://localhost:8000/{{ currentTrack.id }}" readonly>
+        <input type="text" class="share-track" value="{{ apiUrl + currentTrack.id }}" readonly>
         <a @click="disableShareTrack()">Close</a>
       </div>
     </div>
@@ -26,6 +26,7 @@
     vuex: {
       getters: {
         currentTrack: ({ player }) => player.currentTrack,
+        apiUrl: ({ player }) => player.apiUrl,
         subNav: ({ options }) => options.subNav
       },
       actions: {

@@ -6,6 +6,7 @@ const state = {
   audio: null,
   playing: true,
   apiKey: null,
+  apiUrl: null,
   lastTrackIndex: null,
   countPrevious: 0,
   volume: .75
@@ -61,6 +62,10 @@ const mutations = {
 
   SET_API_KEY(state, key) {
     state.apiKey = key;
+  },
+
+  SET_API_URL(state, url) {
+    state.apiUrl = url;
   },
 
   PLAY_PAUSE(state) {

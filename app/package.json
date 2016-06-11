@@ -1,0 +1,31 @@
+{
+  "name": "cloudradioo-app",
+  "productName": "Cloudradioo",
+  "homepage": "http://cloudradioo.com",
+  "identifier": "com.devfake.cloudradioo-app",
+  "description": "The desktop app for Cloudradioo",
+  "version": "0.1.0",
+  "main": "main.js",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/devfake/cloudradioo-app"
+  },
+  "dependencies": {
+    "d3": "^3.5.17",
+    "nouislider": "^8.5.1",
+    "vue": "^1.0.24",
+    "vue-resource": "^0.7.2",
+    "vuex": "^0.6.3"
+  },
+  "devDependencies": {
+    "electron-prebuilt": "^1.2.0",
+    "gulp": "^3.9.1",
+    "css-loader": "0.23.0",
+    "style-loader": "0.13.0",
+    "vue-html-loader": "1.0.0",
+    "vue-loader": "^6.0.0",
+    "webpack": "1.12.9",
+    "vueify": "^8.5.2"
+  }
+}

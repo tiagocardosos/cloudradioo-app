@@ -20,7 +20,7 @@ export function toggleAllFilters(store) {
 }
 
 function callChangeFilter(store, self) {
-  self.$http.get('api/change-filter', {filters: store.state.filter.userFilters}).then(value => {
+  self.$http.get(store.state.player.apiUrl + 'api/change-filter', {filters: store.state.filter.userFilters}).then(value => {
     store.dispatch('INIT_ALL_TRACKS', value.data);
     store.dispatch('RESET_PLAYING_INDEX');
   });

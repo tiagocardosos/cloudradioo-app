@@ -1,32 +1,52 @@
-# electron-quick-start
+![cloudradioo](https://i.imgsafe.org/afc8537f2e.png)
 
-**Clone and run for a quick way to see an Electron in action.**
+Cloudradioo App
+===============
 
-This is a minimal Electron application based on the [Quick Start Guide](http://electron.atom.io/docs/latest/tutorial/quick-start) within the Electron documentation.
+[cloudradioo.com](http://cloudradioo.com) is a web app for modern browsers that plays randomly all top 50 songs from the soundcloud charts. You will discover your new favorite song!
 
-**Use this app along with the [Electron API Demos](http://electron.atom.io/#get-started) app for API code examples to help you get started.**
+This is the app version of cloudradioo, built with [electron](http://electron.atom.io/) and [Vue.js](http://vuejs.org) (with [Vuex](https://github.com/vuejs/vuex)).
 
-A basic Electron application needs just these files:
+### Requirements
+* Node / NPM
 
-- `package.json` - Points to the app's main file and lists its details and dependencies.
-- `main.js` - Starts the app and creates a browser window to render HTML. This is the app's **main process**.
-- `index.html` - A web page to render. This is the app's **renderer process**.
+### Install
 
-You can learn more about each of these components within the [Quick Start Guide](http://electron.atom.io/docs/latest/tutorial/quick-start).
+The app comes with the cloudradioo server as the default api url. If you have the full [cloudradioo web app](https://github.com/devfake/cloudradioo) just start the server and:
 
-## To Use
+Change the url in `app/js/app.js` for your backend cloudradioo server:
 
-To clone and run this repository you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
-
-```bash
-# Clone this repository
-git clone https://github.com/electron/electron-quick-start
-# Go into the repository
-cd electron-quick-start
-# Install dependencies and run the app
-npm install && npm start
+```
+store.dispatch('SET_API_URL', 'http://cloudradioo.com/');
 ```
 
-Learn more about Electron and its API in the [documentation](http://electron.atom.io/docs/latest).
+Then compile the assets and start the app:
 
-#### License [CC0 (Public Domain)](LICENSE.md)
+```
+npm install
+npm start
+```
+
+### Creating a release
+
+You can create a release **only** for your operation system
+
+For windows users, you need the NSIS library installed and added to your path. The version 2 of this library has some bugs with electron, I recommend the version 3.0 which is currently in RC
+
+```
+npm run release
+```
+
+### ToDo
+
+- [x] Electron App
+- [x] Desktop Notifications (HTML5 Notification API)
+- [ ] Notification preferences (Sound on/off, notification on/off, etc)
+- [x] Native Icon for each platform
+- [ ] Splash Screen
+- [x] Improve release build system (Fully stable on Windows and Linux systems. Need testers for the darwin platform)
+- [x] Create the app installer (Now the release system wrap the app into an installer instead of return the source code)
+- [ ] New Charts
+
+
+

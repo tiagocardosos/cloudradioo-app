@@ -12,7 +12,11 @@
         You also can filter your music taste or see a history of your played tracks.
 
         <br><br>
-        This project is open source and is licensed under the MIT-license. If you would like to contribute, you find the project on <a href="https://github.com/devfake/cloudradioo" target="_blank">Github</a>.
+        This project is open source and is licensed under the MIT-license. If you would like to contribute, you find the project on <a href="https://github.com/devfake/cloudradioo-app" target="_blank">Github</a>.
+        <br><br>
+        <b>v0.1.0</b>
+        <br>
+        Made with &#10084; by <a href="https://github.com/devfake" target="_blank">@devfake</a> and <a href="https://github.com/mauri870" target="_blank">@mauri870</a>
       </p>
     </div>
 

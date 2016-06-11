@@ -1,3 +1,5 @@
+require('../sass/app.scss');
+
 import Vue from 'vue';
 import Resource from 'vue-resource';
 
@@ -29,8 +31,11 @@ new Vue({
   },
 
   ready: function() {
+    // Set the base url for api
+    store.dispatch('SET_API_URL', 'http://cloudradioo.com/');
+
     //localStorage.clear();
-    this.$http.get('http://localhost:8000/api/api-key').then(value => {
+    this.$http.get(this.$store.state.player.apiUrl + 'api/api-key').then(value => {
       store.dispatch('SET_API_KEY', value.data);
 
       Player.start();
