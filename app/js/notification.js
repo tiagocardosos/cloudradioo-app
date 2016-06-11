@@ -1,6 +1,5 @@
 import Vue from 'vue';
 import store from './store';
-import notifier from 'node-notifier';
 
 let notification = new Vue({
   store,
