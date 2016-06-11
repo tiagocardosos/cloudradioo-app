@@ -42,7 +42,7 @@ npm run release
 - [x] Electron App
 - [x] Desktop Notifications (HTML5 Notification API)
 - [ ] Notification preferences (Sound on/off, notification on/off, etc)
-- [x] Native Icon for each platform (Need update the icons)
+- [x] Native Icon for each platform
 - [ ] Splash Screen
 - [x] Improve release build system (Fully stable on Windows and Linux systems. Need testers for the darwin platform)
 - [x] Create the app installer (Now the release system wrap the app into an installer instead of return the source code)
